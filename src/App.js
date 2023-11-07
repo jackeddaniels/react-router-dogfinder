@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import Nav from "./Nav";
+import RoutesList from './RoutesList';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [allDogs, setAllDogs] = useState(null);
@@ -30,9 +32,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Good luck!</h1>
+      <BrowserRouter>
       {allDogs !== null &&
         (<Nav dogNames={dogNames} />)}
+        <RoutesList dogs={allDogs}/>
+      </BrowserRouter>
     </div>
   );
 }
